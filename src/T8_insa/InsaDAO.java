@@ -118,13 +118,13 @@ public class InsaDAO extends DBConn {  // dbconn 상속받아서 사용(db연결
 	}
 
 	// 조건을 이용한 다양한 검색처리
-	public Vector getConditionSearch(String fieldName, String txtCondi) {
+	public Vector getConditionSearch(String fieldName, String txtKey) {
 		Vector vData = new Vector<>();
 		try {
-			sql = "select * from insa2 where "+fieldName+" like ? order by ipsail";  // ?=? 불가 필드명은 변수로 받아야함  // 연산자 양쪽엔 공백이 있어야함  // ? 는 '' 생략되어있음 % 여기에 넣으면 안됨
+			sql = "select * from book_Donate where "+fieldName+" like ? order by ipsail";  // ?=? 불가 필드명은 변수로 받아야함  // 연산자 양쪽엔 공백이 있어야함  // ? 는 '' 생략되어있음 % 여기에 넣으면 안됨
 			
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, "%"+txtCondi+"%");
+			pstmt.setString(1, "%"+txtKey+"%");
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {  // 여러건 while // vo도 Vector로 만들어서 Vector를 Vector 객체에 집어넣음

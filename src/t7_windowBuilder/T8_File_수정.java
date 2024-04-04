@@ -134,6 +134,7 @@ public class T8_File_수정 extends JFrame {
 				int row = table.getSelectedRow();
 				int col = table.getSelectedColumn();
 				String image = table.getValueAt(row, col).toString();
+				System.out.println(image);
 				lblImage.setIcon(new ImageIcon(image));  // setIcon 그림 넣는 것
 				
 				ImageIcon icon = new ImageIcon(image);
